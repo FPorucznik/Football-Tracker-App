@@ -20,6 +20,7 @@ Projekt Football Tracker to aplikacja okienkowa z GUI, będzie służyła ona do
  - [x] stworzenie okna
  - [x] menu powitalne
  - [x] wprowadzenie przycisków wyboru do menu (tabele,klasyfikacja strzelców,dzisiejsze mecze)
+ - [ ] zapytania API
  - [ ] interfejs tabel
  - [ ] interfejs klasyfikacji strzelców
  - [ ] interfejs dzisiejszych meczów
