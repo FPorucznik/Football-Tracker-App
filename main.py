@@ -1,5 +1,6 @@
 #Football Tracker alpha version
-import tkinter as tk
+import tkinter as tk #biblioteka do GUI
+import api #moduł z zapytaniami api
 
 #wygenerowanie okna
 window = tk.Tk()
@@ -35,16 +36,16 @@ def tables():
     buttonReturn = tk.Button(text = "Wróć do menu", width = 20, height = 1, font="Arial", command=welcomeMenu)
     buttonReturn.pack(pady=20)
 
-    buttonPremierLeague = tk.Button(text = "Premier League", width = 20, height = 1, font="Arial")
+    buttonPremierLeague = tk.Button(text = "Premier League", width = 20, height = 1, font="Arial", command = lambda: api.table("148"))#tutaj w każdym przycisku w command jako argument przekazuje kod ligi, który sprawdziłem w dokumentacji API
     buttonPremierLeague.pack(pady=10)
 
-    buttonLaLiga = tk.Button(text = "LaLiga", width = 20, height = 1, font="Arial")
+    buttonLaLiga = tk.Button(text = "LaLiga", width = 20, height = 1, font="Arial", command = lambda: api.table("468"))
     buttonLaLiga.pack(pady=10)
 
-    buttonBundesliga = tk.Button(text = "Bundesliga", width = 20, height = 1, font="Arial")
+    buttonBundesliga = tk.Button(text = "Bundesliga", width = 20, height = 1, font="Arial", command = lambda: api.table("195"))
     buttonBundesliga.pack(pady=10)
 
-    buttonSerieA = tk.Button(text = "Serie A", width = 20, height = 1, font="Arial")
+    buttonSerieA = tk.Button(text = "Serie A", width = 20, height = 1, font="Arial", command = lambda: api.table("262"))
     buttonSerieA.pack(pady=10)
 
 #sekcja strzelców
