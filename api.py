@@ -12,6 +12,6 @@ def table(leagueCode):
     listed_data = []
 
     for item in data:
-        listed_data.append([item['overall_league_position'],item['team_name'],item['overall_league_payed'],item['overall_league_W'],item['overall_league_D'],item['overall_league_L']])
+        listed_data.append([item['overall_league_position'],item['team_name'],item['overall_league_payed'],item['overall_league_W'],item['overall_league_D'],item['overall_league_L'],item['overall_league_PTS']])
 
     return listed_data
