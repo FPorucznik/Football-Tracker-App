@@ -59,6 +59,18 @@ def goalScorers():
     buttonReturn = tk.Button(text = "Wróć do menu", width = 20, height = 1, font="Arial", command=welcomeMenu)
     buttonReturn.pack(pady=20)
 
+    buttonPremierLeague = tk.Button(text = "Premier League", width = 20, height = 1, font="Arial", command = lambda: scorerTable("148"))#tutaj w każdym przycisku w command jako argument przekazuje kod ligi, który sprawdziłem w dokumentacji API
+    buttonPremierLeague.pack(pady=10)
+
+    buttonLaLiga = tk.Button(text = "LaLiga", width = 20, height = 1, font="Arial", command = lambda: scorerTable("468"))
+    buttonLaLiga.pack(pady=10)
+
+    buttonBundesliga = tk.Button(text = "Bundesliga", width = 20, height = 1, font="Arial", command = lambda: scorerTable("195"))
+    buttonBundesliga.pack(pady=10)
+
+    buttonSerieA = tk.Button(text = "Serie A", width = 20, height = 1, font="Arial", command = lambda: scorerTable("262"))
+    buttonSerieA.pack(pady=10)
+
 #sekcja meczów
 def matches():
     clearWindow()
