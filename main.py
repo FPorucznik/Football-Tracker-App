@@ -115,5 +115,30 @@ def leagueTable(league_code):
     for item in table_data:
         tableContent.insert('', 'end', values=item)
 
+def scorerTable(league_code):
+    clearWindow()
+
+    buttonReturn = tk.Button(text = "Wróć do lig", width = 20, height = 1, font="Arial", command=goalScorers)
+    buttonReturn.pack(pady=20)
+
+    #funkcja api.scorers zwraca nam słownik strzelców, znajduje się ona w pliku api.py
+    scorers_data = api.scorers(league_code)
+
+    tableFrame = Frame(window)
+    tableFrame.pack()
+
+    tableContent = ttk.Treeview(tableFrame, columns=(1,2), show="headings", height="20")
+    tableContent.pack()
+
+    tableContent.heading(1, text="Zawodnik")
+    tableContent.column(1, minwidth=0, width=200)
+    tableContent.heading(2, text="Strzelone bramki")
+    tableContent.column(2, minwidth=0, width=100)
+
+    #wstawienie rekordów do tabeli
+    for k, v in scorers_data.items():
+        tableContent.insert('', 'end', values=(k,v))
+
+
 welcomeMenu()
 window.mainloop()
