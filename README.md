@@ -14,7 +14,7 @@ Projekt Football Tracker to aplikacja okienkowa z GUI, będzie służyła ona do
 
  - Python
  - biblioteka tkinter
- - zewnętrzne API a konkretnie: [https://apifootball.com/](https://apifootball.com/) oraz [https://www.football-data.org/](https://apifootball.com/)
+ - zewnętrzne API a konkretnie: [https://apifootball.com/](https://apifootball.com/) oraz https://www.football-data.org/
 
 ## Lista To Do 
  - [x] stworzenie okna
