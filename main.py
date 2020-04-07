@@ -80,6 +80,18 @@ def matches():
     buttonReturn = tk.Button(text = "Wróć do menu", width = 20, height = 1, font="Arial", command=welcomeMenu)
     buttonReturn.pack(pady=20)
 
+    buttonPremierLeague = tk.Button(text = "Premier League", width = 20, height = 1, font="Arial", command = lambda: matches_schedule("PL","Premier League"))#tutaj w każdym przycisku w command jako argument przekazuje kod ligi, który sprawdziłem w dokumentacji drugiego API oraz nazwe ligi dla odpowiedniego podpisy
+    buttonPremierLeague.pack(pady=10)
+
+    buttonLaLiga = tk.Button(text = "LaLiga", width = 20, height = 1, font="Arial", command = lambda: matches_schedule("PD","Laliga"))
+    buttonLaLiga.pack(pady=10)
+
+    buttonBundesliga = tk.Button(text = "Bundesliga", width = 20, height = 1, font="Arial", command = lambda: matches_schedule("BL1","Bundesliga"))
+    buttonBundesliga.pack(pady=10)
+
+    buttonSerieA = tk.Button(text = "Serie A", width = 20, height = 1, font="Arial", command = lambda: matches_schedule("SA","Serie A"))
+    buttonSerieA.pack(pady=10)
+
 def leagueTable(league_code,league_name):
     clearWindow()
 
@@ -118,11 +130,14 @@ def leagueTable(league_code,league_name):
     for item in table_data:
         tableContent.insert('', 'end', values=item)
 
-def scorerTable(league_code):
+def scorerTable(league_code,league_name):
     clearWindow()
 
     buttonReturn = tk.Button(text = "Wróć do lig", width = 20, height = 1, font="Arial", command=goalScorers)
     buttonReturn.pack(pady=20)
+
+    title = tk.Label(text = league_name, font="Arial")
+    title.pack()
 
     #funkcja api.scorers zwraca nam słownik strzelców, znajduje się ona w pliku api.py
     scorers_data = api.scorers(league_code)
@@ -142,6 +157,15 @@ def scorerTable(league_code):
     for k, v in scorers_data.items():
         tableContent.insert('', 'end', values=(k,v))
 
+
+def matches_schedule(league_code,league_name):
+    clearWindow()
+
+    buttonReturn = tk.Button(text = "Wróć do lig", width = 20, height = 1, font="Arial", command=matches)
+    buttonReturn.pack(pady=20)
+
+    title = tk.Label(text = league_name, font="Arial")
+    title.pack()
 
 welcomeMenu()
 window.mainloop()
