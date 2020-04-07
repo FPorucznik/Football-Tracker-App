@@ -38,16 +38,16 @@ def tables():
     buttonReturn = tk.Button(text = "Wróć do menu", width = 20, height = 1, font="Arial", command=welcomeMenu)
     buttonReturn.pack(pady=20)
 
-    buttonPremierLeague = tk.Button(text = "Premier League", width = 20, height = 1, font="Arial", command = lambda: leagueTable("148"))#tutaj w każdym przycisku w command jako argument przekazuje kod ligi, który sprawdziłem w dokumentacji API
+    buttonPremierLeague = tk.Button(text = "Premier League", width = 20, height = 1, font="Arial", command = lambda: leagueTable("148","Premier League"))#tutaj w każdym przycisku w command jako argument przekazuje kod ligi, który sprawdziłem w dokumentacji API oraz nazwe ligi dla odpowiedniego podpisy
     buttonPremierLeague.pack(pady=10)
 
-    buttonLaLiga = tk.Button(text = "LaLiga", width = 20, height = 1, font="Arial", command = lambda: leagueTable("468"))
+    buttonLaLiga = tk.Button(text = "LaLiga", width = 20, height = 1, font="Arial", command = lambda: leagueTable("468","Laliga"))
     buttonLaLiga.pack(pady=10)
 
-    buttonBundesliga = tk.Button(text = "Bundesliga", width = 20, height = 1, font="Arial", command = lambda: leagueTable("195"))
+    buttonBundesliga = tk.Button(text = "Bundesliga", width = 20, height = 1, font="Arial", command = lambda: leagueTable("195","Bundesliga"))
     buttonBundesliga.pack(pady=10)
 
-    buttonSerieA = tk.Button(text = "Serie A", width = 20, height = 1, font="Arial", command = lambda: leagueTable("262"))
+    buttonSerieA = tk.Button(text = "Serie A", width = 20, height = 1, font="Arial", command = lambda: leagueTable("262","Serie A"))
     buttonSerieA.pack(pady=10)
 
 #sekcja strzelców
@@ -59,16 +59,16 @@ def goalScorers():
     buttonReturn = tk.Button(text = "Wróć do menu", width = 20, height = 1, font="Arial", command=welcomeMenu)
     buttonReturn.pack(pady=20)
 
-    buttonPremierLeague = tk.Button(text = "Premier League", width = 20, height = 1, font="Arial", command = lambda: scorerTable("148"))#tutaj w każdym przycisku w command jako argument przekazuje kod ligi, który sprawdziłem w dokumentacji API
+    buttonPremierLeague = tk.Button(text = "Premier League", width = 20, height = 1, font="Arial", command = lambda: scorerTable("148","Premier League"))#tutaj w każdym przycisku w command jako argument przekazuje kod ligi, który sprawdziłem w dokumentacji API
     buttonPremierLeague.pack(pady=10)
 
-    buttonLaLiga = tk.Button(text = "LaLiga", width = 20, height = 1, font="Arial", command = lambda: scorerTable("468"))
+    buttonLaLiga = tk.Button(text = "LaLiga", width = 20, height = 1, font="Arial", command = lambda: scorerTable("468","LaLiga"))
     buttonLaLiga.pack(pady=10)
 
-    buttonBundesliga = tk.Button(text = "Bundesliga", width = 20, height = 1, font="Arial", command = lambda: scorerTable("195"))
+    buttonBundesliga = tk.Button(text = "Bundesliga", width = 20, height = 1, font="Arial", command = lambda: scorerTable("195","Bundesliga"))
     buttonBundesliga.pack(pady=10)
 
-    buttonSerieA = tk.Button(text = "Serie A", width = 20, height = 1, font="Arial", command = lambda: scorerTable("262"))
+    buttonSerieA = tk.Button(text = "Serie A", width = 20, height = 1, font="Arial", command = lambda: scorerTable("262","Serie A"))
     buttonSerieA.pack(pady=10)
 
 #sekcja meczów
@@ -80,11 +80,14 @@ def matches():
     buttonReturn = tk.Button(text = "Wróć do menu", width = 20, height = 1, font="Arial", command=welcomeMenu)
     buttonReturn.pack(pady=20)
 
-def leagueTable(league_code):
+def leagueTable(league_code,league_name):
     clearWindow()
 
     buttonReturn = tk.Button(text = "Wróć do lig", width = 20, height = 1, font="Arial", command=tables)
     buttonReturn.pack(pady=20)
+
+    title = tk.Label(text = league_name, font="Arial")
+    title.pack()
 
     #funkcja api.table zwraca nam liste danych o danej lidze, znajduje się ona w pliku api.py
     table_data = api.table(league_code)
