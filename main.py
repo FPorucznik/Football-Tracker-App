@@ -3,6 +3,7 @@ import tkinter as tk #biblioteka do GUI
 from tkinter import *
 from tkinter import ttk
 import api #moduł z zapytaniami api
+from datetime import date
 
 #wygenerowanie okna
 window = tk.Tk()
@@ -166,6 +167,11 @@ def matches_schedule(league_code,league_name):
 
     title = tk.Label(text = league_name, font="Arial")
     title.pack()
+
+    today=date.today()
+    today=today.strftime("%d.%m.%Y")
+    dateString = tk.Label(text ="Data: "+today, font="Arial")
+    dateString.pack()
 
 welcomeMenu()
 window.mainloop()
