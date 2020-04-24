@@ -5,10 +5,11 @@ Projekt Football Tracker to aplikacja okienkowa z GUI, będzie służyła ona do
 # Plan działania
 
  - utworzenie GUI:
-	 - wybór ligi
-	 - wybór klasyfikacji strzelców
-	 - sekcja nadchodzących meczów
- - użycie API i zaimplementowanie go każdej z wyżej wymienionych sekcji 
+	 - wybór tabeli ligowej z wybranej ligi
+	 - wybór klasyfikacji strzelców z wybranej ligi
+	 - sekcja dzisiejszych meczów z wybranej ligi
+ - użycie danych z API i implementacja w każdej z wyżej wymienionych sekcji 
+ - poprawa wizualna aplikacji
 
 ## Używane technologie
 
@@ -20,12 +21,21 @@ Projekt Football Tracker to aplikacja okienkowa z GUI, będzie służyła ona do
  - [x] stworzenie okna
  - [x] menu powitalne
  - [x] wprowadzenie przycisków wyboru do menu (tabele,klasyfikacja strzelców,dzisiejsze mecze)
- - [ ] zapytania API
+ - [x] zapytania API:
+	- [x] zapytanie dot. tabel ligowych
+	- [x] zapytanie dot. klasyfikacji strzelców
+	- [x] zapytanie dot. dzisiejszych meczów 
  - [x] interfejs tabel
  - [x] interfejs klasyfikacji strzelców
  - [ ] interfejs dzisiejszych meczów
  - [ ] ewentualne stworzenie grafik dla lepszej estetyki aplikacji
- - [ ] dodanie styli dla lepszej estetyki aplikacji
+ - [ ] generalna poprawa wizualna aplikacji
+
+Dodatkowo przy dobrym tempie rozwoju projektu możliwe(ale niekoniecznie na 100%) nowe implementacje takie jak:
+-interfejs, który pokazuje wyniki meczów w wybranym dniu
+
+
+
 	
 
 
