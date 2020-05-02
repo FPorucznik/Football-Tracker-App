@@ -70,21 +70,31 @@ def matches_today(leagueCode):
     #serie SA
     connection = http.client.HTTPConnection('api.football-data.org')
     headers = { 'X-Auth-Token': matches_key }
-    connection.request('GET', '/v2/competitions/PL/matches?dateFrom='+today+'&dateTo='+today+'', None, headers )
+    connection.request('GET', '/v2/competitions/'+leagueCode+'/matches?dateFrom='+today+'&dateTo='+today+'', None, headers )
+    #connection.request('GET', '/v2/competitions/PL/matches?dateFrom=2020-03-09&dateTo=2020-03-09', None, headers ) ----testowy request-----
     response = json.loads(connection.getresponse().read().decode())#drugie api wymaga takiego polaczenia
 
     dates = []
     matchUps = []
     for i in range(0,len(response['matches'])):
-        current = response['matches'][i]['utcDate']
+        current = response['matches'][i]['utcDate']#formatowanie zwracanej daty z api
         current_formatted = current.replace('Z','')
-        dates.append(current_formatted.replace('T',' '))
-        matchUps.append(response['matches'][i]['homeTeam']['name'] + ' : ' + response['matches'][i]['awayTeam']['name'])
+        current_formatted = current_formatted.replace('T',' ')
+        current_formatted = current_formatted[11:16]
+        hour = int(current_formatted[0:2])
+
+        if hour != 0:
+            hour = str(hour + 1)#dodanie godziny ze względu na inną strefę czasową
+            current_formatted = current_formatted.replace(current_formatted[0:2],hour)
+        else:
+            current_formatted = current_formatted.replace("0"+current_formatted[0:2],str(hour))
+        dates.append(current_formatted)
+
+        matchUps.append(response['matches'][i]['homeTeam']['name'] + '  :  ' + response['matches'][i]['awayTeam']['name'])
 
     full_matches_data = dict(zip(matchUps,dates))
     return full_matches_data
 
-print(matches_today("PL"))
 
 
     

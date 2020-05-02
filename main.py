@@ -146,18 +146,21 @@ def scorerTable(league_code,league_name):
     tableFrame = Frame(window)
     tableFrame.pack()
 
-    tableContent = ttk.Treeview(tableFrame, columns=(1,2), show="headings", height="20")
+    tableContent = ttk.Treeview(tableFrame, columns=(1,2,3), show="headings", height="20")
     tableContent.pack()
 
-    tableContent.heading(1, text="Zawodnik")
-    tableContent.column(1, minwidth=0, width=200)
-    tableContent.heading(2, text="Strzelone bramki")
-    tableContent.column(2, minwidth=0, width=100)
+    tableContent.heading(1, text="Miejsce")
+    tableContent.column(1, minwidth=0, width=100)
+    tableContent.heading(2, text="Zawodnik")
+    tableContent.column(2, minwidth=0, width=200)
+    tableContent.heading(3, text="Strzelone bramki")
+    tableContent.column(3, minwidth=0, width=100)
 
     #wstawienie rekordów do tabeli
+    counter = 0
     for k, v in scorers_data.items():
-        tableContent.insert('', 'end', values=(k,v))
-
+        counter = counter + 1
+        tableContent.insert('', 'end', values=(counter,k,v))
 
 def matches_schedule(league_code,league_name):
     clearWindow()
@@ -172,6 +175,27 @@ def matches_schedule(league_code,league_name):
     today=today.strftime("%d.%m.%Y")
     dateString = tk.Label(text ="Data: "+today, font="Arial")
     dateString.pack()
+
+    matches_data = api.matches_today(league_code)
+    if matches_data == {}:
+        msg = tk.Label(text = "Brak meczów w tym dniu", font="Arial")
+        msg.pack()
+    else:
+        tableFrame = Frame(window)
+        tableFrame.pack()
+
+        tableContent = ttk.Treeview(tableFrame, columns=(1,2), show="headings", height="20")
+        tableContent.pack()
+
+        tableContent.heading(1, text="Mecz")
+        tableContent.column(1, minwidth=0, width=300)
+        tableContent.heading(2, text="Godzina")
+        tableContent.column(2, minwidth=0, width=100)
+
+        for k, v in matches_data.items():
+            tableContent.insert('', 'end', values=(k,v))
+
+
 
 welcomeMenu()
 window.mainloop()
