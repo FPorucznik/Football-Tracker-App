@@ -71,7 +71,7 @@ def matches_today(leagueCode):
     connection = http.client.HTTPConnection('api.football-data.org')
     headers = { 'X-Auth-Token': matches_key }
     connection.request('GET', '/v2/competitions/'+leagueCode+'/matches?dateFrom='+today+'&dateTo='+today+'', None, headers )
-    #connection.request('GET', '/v2/competitions/PL/matches?dateFrom=2020-03-09&dateTo=2020-03-09', None, headers ) ----testowy request-----
+    #connection.request('GET', '/v2/competitions/BL1/matches?dateFrom=2020-05-16&dateTo=2020-05-16', None, headers ) #----testowy request-----
     response = json.loads(connection.getresponse().read().decode())#drugie api wymaga takiego polaczenia
 
     dates = []
@@ -84,7 +84,7 @@ def matches_today(leagueCode):
         hour = int(current_formatted[0:2])
 
         if hour != 0:
-            hour = str(hour + 1)#dodanie godziny ze względu na inną strefę czasową
+            hour = str(hour + 2)#dodanie godzin ze względu na inną strefę czasową
             current_formatted = current_formatted.replace(current_formatted[0:2],hour)
         else:
             current_formatted = current_formatted.replace("0"+current_formatted[0:2],str(hour))
