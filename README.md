@@ -28,8 +28,14 @@ Projekt Football Tracker to aplikacja okienkowa z GUI, będzie służyła ona do
  - [x] interfejs tabel
  - [x] interfejs klasyfikacji strzelców
  - [x] interfejs dzisiejszych meczów
- - [ ] ewentualne stworzenie grafik dla lepszej estetyki aplikacji
+ - [x] ewentualne stworzenie grafik dla lepszej estetyki aplikacji (utworzone w Adobe Photoshop CS6)
  - [ ] generalna poprawa wizualna aplikacji
+	- [x] dodanie grafik do folderu assets
+	- [x] zaimplementowanie grafik w aplikacji (tła okna)
+	- [x] wizualna poprawa położenia przycisków, tabel, napisów
+	- [x] wizualna poprawa wyświetlanego tekstu w tytułach oraz na przyciskach
+	- [ ] wizualna poprawa wyglądu tabel
+- [ ] uporządkowanie kodu
 
 
 
