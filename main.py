@@ -248,7 +248,6 @@ def matches_schedule(league_code,league_name):
     time = strftime('%H:%M') 
     time_text = canvas.create_text(420, 80, anchor=N, font=("Russo One", 20), fill="black", text="Godzina: "+time)
 
-    
     matches_data = api.matches_today(league_code)
     if matches_data == {}:
         msg = canvas.create_text(300, 200, anchor=N, font=("Russo One", 20), fill="black", text="Brak meczów w tym dniu")
@@ -268,8 +267,6 @@ def matches_schedule(league_code,league_name):
 
         for k, v in matches_data.items():
             tableContent.insert('', 'end', values=(k,v))
-
-
 
 welcomeMenu()
 window.mainloop()

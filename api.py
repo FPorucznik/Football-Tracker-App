@@ -71,7 +71,6 @@ def matches_today(leagueCode):
     connection = http.client.HTTPConnection('api.football-data.org')
     headers = { 'X-Auth-Token': matches_key }
     connection.request('GET', '/v2/competitions/'+leagueCode+'/matches?dateFrom='+today+'&dateTo='+today+'', None, headers )
-    #connection.request('GET', '/v2/competitions/BL1/matches?dateFrom=2020-05-16&dateTo=2020-05-16', None, headers ) #----testowy request-----
     response = json.loads(connection.getresponse().read().decode())#drugie api wymaga takiego polaczenia
 
     dates = []
